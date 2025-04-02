@@ -3,201 +3,646 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>OpenSphere - Open Source Project Platform</title>
+    <title>OpenSphere | Open Source Collaboration Platform</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            line-height: 1.6;
-            margin: 0;
-            padding: 0;
-            color: #333;
-        }
-        header {
-            background: #2c3e50;
-            color: white;
-            padding: 1rem 0;
-            text-align: center;
-        }
-        nav {
-            background: #34495e;
-            display: flex;
-            justify-content: center;
-            padding: 0.5rem;
-        }
-        nav a {
-            color: white;
-            text-decoration: none;
-            padding: 0.5rem 1rem;
-            margin: 0 0.5rem;
-            border-radius: 4px;
-        }
-        nav a:hover {
-            background: #2980b9;
-        }
-        .container {
-            width: 80%;
-            margin: auto;
-            overflow: hidden;
-            padding: 2rem 0;
-        }
-        .project-info {
-            background: #f4f4f4;
-            padding: 1rem;
-            margin-bottom: 1rem;
-            border-radius: 5px;
-        }
-        footer {
-            background: #2c3e50;
-            color: white;
-            text-align: center;
-            padding: 1rem 0;
-            position: fixed;
-            bottom: 0;
-            width: 100%;
-        }
-        .announcements {
-            border: 1px solid #ddd;
-            padding: 1rem;
-            margin-bottom: 1rem;
-        }
-        .announcement {
-            padding: 0.5rem;
-            border-bottom: 1px dotted #ccc;
-        }
-        .btn {
-            display: inline-block;
-            background: #2980b9;
-            color: white;
-            padding: 0.5rem 1rem;
-            border: none;
-            border-radius: 4px;
-            text-decoration: none;
-        }
-        .btn:hover {
-            background: #3498db;
+        :root {
+            --primary: #2c3e50;
+            --secondary: #3498db;
+            --accent: #e74c3c;
+            --light: #ecf0f1;
+            --dark: #2c3e50;
+            --text: #333;
+            --text-light: #7f8c8d;
         }
         
-        /* Dropdown styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background-color: #f9f9f9;
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--dark));
+            color: white;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .logo img {
+            height: 50px;
+        }
+        
+        .logo-text {
+            font-size: 1.8rem;
+            font-weight: 700;
+        }
+        
+        .logo-text span {
+            color: var(--secondary);
+        }
+        
+        .language-selector {
+            display: flex;
+            gap: 0.5rem;
+        }
+        
+        .language-selector a {
+            color: white;
+            text-decoration: none;
+            font-size: 0.9rem;
+            padding: 0.3rem 0.6rem;
+            border-radius: 3px;
+            transition: background 0.3s;
+        }
+        
+        .language-selector a:hover {
+            background: rgba(255,255,255,0.2);
+        }
+        
+        nav {
+            background-color: var(--dark);
+            padding: 0.8rem 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .nav-container {
+            display: flex;
+            justify-content: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        .nav-link {
+            color: white;
+            text-decoration: none;
+            padding: 0.5rem 1.2rem;
+            margin: 0 0.3rem;
+            border-radius: 4px;
+            transition: all 0.3s;
+            font-weight: 500;
+        }
+        
+        .nav-link:hover, .nav-link.active {
+            background-color: var(--secondary);
+            color: white;
+        }
+        
         .dropdown {
             position: relative;
             display: inline-block;
         }
+        
         .dropdown-btn {
-            background: #2980b9;
+            background-color: transparent;
             color: white;
-            padding: 0.5rem 1rem;
             border: none;
-            border-radius: 4px;
+            padding: 0.5rem 1.2rem;
+            margin: 0 0.3rem;
+            font-size: 1rem;
+            font-weight: 500;
             cursor: pointer;
+            border-radius: 4px;
+            transition: all 0.3s;
         }
+        
         .dropdown-btn:hover {
-            background: #3498db;
+            background-color: var(--secondary);
         }
+        
         .dropdown-content {
             display: none;
             position: absolute;
-            background-color: #f9f9f9;
-            min-width: 160px;
-            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            background-color: white;
+            min-width: 200px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
             z-index: 1;
             border-radius: 4px;
+            overflow: hidden;
         }
+        
         .dropdown-content a {
-            color: #333;
-            padding: 12px 16px;
+            color: var(--text);
+            padding: 0.8rem 1rem;
             text-decoration: none;
             display: block;
+            transition: background 0.2s;
         }
+        
         .dropdown-content a:hover {
-            background-color: #f1f1f1;
+            background-color: var(--light);
+            color: var(--secondary);
         }
+        
         .dropdown:hover .dropdown-content {
             display: block;
+        }
+        
+        main {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 2rem;
+        }
+        
+        .hero {
+            display: flex;
+            align-items: center;
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+        
+        .hero-content {
+            flex: 1;
+        }
+        
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--dark);
+        }
+        
+        .hero p {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            color: var(--text-light);
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background-color: var(--secondary);
+            color: white;
+            padding: 0.8rem 1.8rem;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background 0.3s;
+        }
+        
+        .cta-button:hover {
+            background-color: #2980b9;
+        }
+        
+        .hero-image {
+            flex: 1;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .hero-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        .explore {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+        
+        .explore-card {
+            background: white;
+            border-radius: 8px;
+            padding: 2rem;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .explore-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        
+        .explore-icon {
+            font-size: 2.5rem;
+            color: var(--secondary);
+            margin-bottom: 1.5rem;
+        }
+        
+        .explore-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: var(--dark);
+        }
+        
+        .explore-card p {
+            color: var(--text-light);
+            margin-bottom: 1.5rem;
+        }
+        
+        .explore-link {
+            color: var(--secondary);
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+        }
+        
+        .explore-link i {
+            margin-left: 0.5rem;
+            transition: transform 0.3s;
+        }
+        
+        .explore-link:hover i {
+            transform: translateX(3px);
+        }
+        
+        .download-section {
+            background: linear-gradient(135deg, var(--primary), var(--dark));
+            padding: 3rem;
+            border-radius: 8px;
+            text-align: center;
+            margin: 3rem 0;
+            color: white;
+        }
+        
+        .download-section h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+        
+        .download-section p {
+            margin-bottom: 2rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .download-dropdown {
+            display: inline-block;
+            margin-top: 1rem;
+        }
+        
+        .download-btn {
+            background-color: var(--accent);
+            color: white;
+            border: none;
+            padding: 0.8rem 2rem;
+            font-size: 1.1rem;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background 0.3s;
+            font-weight: 600;
+        }
+        
+        .download-btn:hover {
+            background-color: #c0392b;
+        }
+        
+        .news-section {
+            margin: 3rem 0;
+        }
+        
+        .news-section h2 {
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            color: var(--dark);
+            text-align: center;
+        }
+        
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+        
+        .news-card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+        }
+        
+        .news-image {
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .news-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .news-card:hover .news-image img {
+            transform: scale(1.05);
+        }
+        
+        .news-content {
+            padding: 1.5rem;
+        }
+        
+        .news-date {
+            color: var(--text-light);
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .news-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: var(--dark);
+        }
+        
+        .news-card p {
+            color: var(--text-light);
+            margin-bottom: 1.5rem;
+        }
+        
+        .read-more {
+            color: var(--secondary);
+            text-decoration: none;
+            font-weight: 600;
+        }
+        
+        .help-section {
+            background-color: var(--light);
+            padding: 3rem;
+            border-radius: 8px;
+            margin: 3rem 0;
+            text-align: center;
+        }
+        
+        .help-section h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: var(--dark);
+        }
+        
+        .help-section p {
+            max-width: 700px;
+            margin: 0 auto 2rem;
+            color: var(--text-light);
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        
+        .social-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            background-color: var(--primary);
+            color: white;
+            border-radius: 50%;
+            font-size: 1.3rem;
+            transition: transform 0.3s, background 0.3s;
+        }
+        
+        .social-link:hover {
+            transform: translateY(-3px);
+            background-color: var(--secondary);
+        }
+        
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+        }
+        
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: var(--secondary);
+        }
+        
+        .copyright {
+            color: rgba(255,255,255,0.7);
+            font-size: 0.9rem;
+        }
+        
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .hero {
+                flex-direction: column;
+            }
+            
+            .nav-container {
+                flex-wrap: wrap;
+            }
+            
+            .explore {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
 <body>
     <header>
-        <h1>OpenSphere</h1>
-        <p>An open-source platform for collaborative development</p>
+        <div class="header-container">
+            <div class="logo">
+                <img src="/img/bookNest.png" alt="Logo">
+                <div class="logo-text">Open<span>Sphere</span></div>
+            </div>
+            <div class="language-selector">
+                <a href="#">EN</a>
+                <a href="#">ES</a>
+                <a href="#">FR</a>
+                <a href="#">DE</a>
+                <a href="#">更多</a>
+            </div>
+        </div>
     </header>
-
+    
     <nav>
-        <a href="index.html">Home</a>
-        <a href="users.html">For Users</a>
-        <a href="contributors.html">For Contributors</a>
-        <a href="https://github.com/maryam370/booking-system.git" target="_blank">GitHub</a>
-    </nav>
-
-    <div class="container">
-        <section class="project-info">
-            <h2>About OpenSphere</h2>
-            <p>OpenSphere is a free and open-source platform designed to facilitate collaborative software development. 
-               Originally started as an ITSE305 class project, it has grown into a community-driven initiative.</p>
-            
-            <h3>Project Name Origin</h3>
-            <p>The name "OpenSphere" was chosen to represent our vision of creating an open, inclusive environment 
-               (sphere) where developers and users can collaborate freely.</p>
-            
-            <h3>Project Status</h3>
-            <p>Current development status: <strong>Alpha</strong> - Core features are implemented but still undergoing testing.</p>
-            
+        <div class="nav-container">
+            <a href="index.html" class="nav-link active">Home</a>
             <div class="dropdown">
-                <button class="dropdown-btn">Download Latest Version</button>
+                <button class="dropdown-btn">Download</button>
                 <div class="dropdown-content">
-                    <a href="https://github.com/maryam370/booking-system.git/raw/refs/heads/master/OpenSphere-Windows.zip" download="OpenSphere-Windows.zip">Download for Windows</a>
-                    <a href="https://github.com/maryam370/booking-system.git/raw/refs/heads/master/OpenSphere-Mac.zip" download="OpenSphere-Mac.zip">Download for Mac</a>
-                    <a href="https://github.com/maryam370/booking-system.git/raw/refs/heads/master/OpenSphere-Linux.tar.gz" download="OpenSphere-Linux.tar.gz">Download for Linux</a>
+                    <a href="#">Windows</a>
+                    <a href="#">MacOS</a>
+                    <a href="#">Linux</a>
+                </div>
+            </div>
+            <a href="explore.html" class="nav-link">Explore</a>
+            <a href="help.html" class="nav-link">Need Help? </a>
+            <a href="InnovationHub.html" class="nav-link">Innovation Hub</a>
+            <a href="contribute.html" class="nav-link">Contribute</a>
+            <a href="about.html" class="nav-link">About</a>
+        </div>
+    </nav>
+    
+    <main>
+        <section class="hero">
+            <div class="hero-content">
+                <h1>Collaborate Without Limits with OpenSphere</h1>
+                <p>OpenSphere is a free and open-source platform designed to facilitate collaborative software development. Join our growing help of developers and contributors building the future of open collaboration.</p>
+                <a href="contribute.html" class="cta-button">Get Started</a>
+            </div>
+            <div class="hero-image">
+                <img src="https://via.placeholder.com/600x400" alt="Collaborative Development">
+            </div>
+        </section>
+        
+        <section class="explore">
+            <div class="explore-card">
+                <div class="explore-icon">
+                    <i class="fas fa-code-branch"></i>
+                </div>
+                <h3>Version Control</h3>
+                <p>Powerful Git integration with visual tools to manage your codebase and collaborate effectively with your team.</p>
+                <a href="#" class="explore-link">Learn more <i class="fas fa-arrow-right"></i></a>
+            </div>
+            
+            <div class="explore-card">
+                <div class="explore-icon">
+                    <i class="fas fa-users"></i>
+                </div>
+                <h3>Real-time Collaboration</h3>
+                <p>Work simultaneously with team members across the globe with our real-time editing and communication tools.</p>
+                <a href="#" class="explore-link">Learn more <i class="fas fa-arrow-right"></i></a>
+            </div>
+            
+            <div class="explore-card">
+                <div class="explore-icon">
+                    <i class="fas fa-shield-alt"></i>
+                </div>
+                <h3>Security First</h3>
+                <p>Enterprise-grade security explore to protect your intellectual property and sensitive data.</p>
+                <a href="#" class="explore-link">Learn more <i class="fas fa-arrow-right"></i></a>
+            </div>
+        </section>
+        
+        <section class="download-section">
+            <h2>Ready to Get Started?</h2>
+            <p>Download OpenSphere today and join thousands of developers in our open-source help. Available for all major platforms.</p>
+            <div class="download-dropdown">
+                <button class="download-btn">Download OpenSphere</button>
+                <div class="dropdown-content">
+                    <a href="#">Windows (64-bit)</a>
+                    <a href="#">MacOS (Universal)</a>
+                    <a href="#">Linux (Debian/Ubuntu)</a>
+                    <a href="#">Linux (RPM)</a>
+                    <a href="#">Source Code</a>
                 </div>
             </div>
         </section>
-
-        <section class="announcements">
-            <h2>Recent Announcements</h2>
-            
-            <div class="announcement">
-                <h3>Version 0.1.0 Released</h3>
-                <p><small>Posted: June 10, 2023</small></p>
-                <p>We're excited to announce our first alpha release! This includes core functionality and basic collaboration features.</p>
-            </div>
-            
-            <div class="announcement">
-                <h3>Project Now Open Source</h3>
-                <p><small>Posted: May 25, 2023</small></p>
-                <p>The OpenSphere project is now officially open source under the MIT License. Contributions are welcome!</p>
-            </div>
-            
-            <div class="announcement">
-                <h3>Documentation Updated</h3>
-                <p><small>Posted: May 15, 2023</small></p>
-                <p>Developer documentation and user guides have been added to the GitHub repository.</p>
+        
+        <section class="news-section">
+            <h2>Latest News & Updates</h2>
+            <div class="news-grid">
+                <div class="news-card">
+                    <div class="news-image">
+                        <img src="https://via.placeholder.com/400x200" alt="News Image">
+                    </div>
+                    <div class="news-content">
+                        <p class="news-date">June 15, 2023</p>
+                        <h3>OpenSphere 2.0 Released</h3>
+                        <p>We're excited to announce the release of OpenSphere 2.0 with groundbreaking new explore for collaborative development.</p>
+                        <a href="#" class="read-more">Read more →</a>
+                    </div>
+                </div>
+                
+                <div class="news-card">
+                    <div class="news-image">
+                        <img src="https://via.placeholder.com/400x200" alt="News Image">
+                    </div>
+                    <div class="news-content">
+                        <p class="news-date">May 28, 2023</p>
+                        <h3>help Hackathon Results</h3>
+                        <p>Our global hackathon produced amazing new plugins and extensions for the OpenSphere ecosystem.</p>
+                        <a href="#" class="read-more">Read more →</a>
+                    </div>
+                </div>
+                
+                <div class="news-card">
+                    <div class="news-image">
+                        <img src="https://via.placeholder.com/400x200" alt="News Image">
+                    </div>
+                    <div class="news-content">
+                        <p class="news-date">April 10, 2023</p>
+                        <h3>Security Update Available</h3>
+                        <p>Important security updates have been released for all versions of OpenSphere. Update now to ensure your safety.</p>
+                        <a href="#" class="read-more">Read more →</a>
+                    </div>
+                </div>
             </div>
         </section>
-
-        <section>
-            <h2>Key Features</h2>
-            <ul>
-                <li>Collaborative code development environment</li>
-                <li>Integrated issue tracking system</li>
-                <li>Developer discussion forums</li>
-                <li>Comprehensive documentation</li>
-                <li>Regular version releases</li>
-            </ul>
+        
+        <section class="help-section">
+            <h2>Join Our Growing help</h2>
+            <p>OpenSphere is developed by a global help of contributors. Whether you're a developer, designer, writer, or just passionate about open-source, we'd love to have you join us!</p>
+            <a href="contribute.html" class="cta-button">Get Involved</a>
+            
+            <div class="social-links">
+                <a href="#" class="social-link"><i class="fab fa-github"></i></a>
+                <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                <a href="#" class="social-link"><i class="fab fa-discord"></i></a>
+                <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
+                <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+            </div>
         </section>
-
-        <section>
-            <h2>Project Resources</h2>
-            <p>
-                <a href="https://github.com/maryam370/booking-system.git" class="btn">GitHub Repository</a>
-                <a href="docs.html" class="btn">Documentation</a>
-                <a href="faq.html" class="btn">FAQ</a>
-            </p>
-        </section>
-    </div>
-
+    </main>
+    
     <footer>
-        <p>OpenSphere Project &copy; 2023 | Licensed under MIT License</p>
-        <p>Contact: <a href="mailto:info@opensphere.dev" style="color: #3498db;">info@opensphere.dev</a></p>
+        <div class="footer-container">
+            <div class="footer-links">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Use</a>
+                <a href="#">Code of Conduct</a>
+                <a href="#">Contact Us</a>
+                <a href="#">Donate</a>
+            </div>
+            <p class="copyright">© 2023 OpenSphere Project. Licensed under MIT License.</p>
+        </div>
     </footer>
 </body>
 </html>
