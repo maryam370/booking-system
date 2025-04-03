@@ -84,7 +84,7 @@ By contributing to BookNest, you agree that your code will be licensed under the
 
 For questions or collaboration:
 
-- **[GitHub Discussions](https://github.com/your-repo/discussions)** – For issue tracking and feature discussions.
+- **[GitHub Discussions](https://github.com/maryam370/booking-system/discussions)** – For issue tracking and feature discussions.
 - **Discord/Slack** – For real-time chat and community engagement.
 - **Mailing List** – For project updates and in-depth discussions.
 
