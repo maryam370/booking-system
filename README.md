@@ -88,4 +88,9 @@ For questions or collaboration:
 - **Discord/Slack** – For real-time chat and community engagement.
 - **Mailing List** – For project updates and in-depth discussions.
 
+  ## Code of Conduct
+
+We follow the [Contributor Covenant Code of Conduct](https://www.contributor-covenant.org/version/2/1/code_of_conduct/). Please take a moment to read it and ensure that we create a respectful and inclusive community.
+
+
 Your contributions—whether code, documentation, or ideas—help make **BookNest** a better system for everyone. We look forward to working with you! 
