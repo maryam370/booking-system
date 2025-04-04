@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About BookNest</title>
+    <link rel="stylesheet" href="contrb.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f9f9f9;
+            color: #333;
+            padding: 20px;
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1, h2 {
+            color: #2c3e50;
+        }
+        ul {
+            list-style: disc;
+            margin-left: 20px;
+        }
+        code {
+            background: #eee;
+            padding: 3px 6px;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>About BookNest</h1>
+
+        <h2>But First, Look Around</h2>
+<p>Before diving into the development of BookNest, we explored existing library management systems to understand the market and identify gaps we could fill. Some well-known proprietary solutions include <a href="https://exlibrisgroup.com/alma" target="_blank">Alma by Ex Libris</a>, a cloud-based platform used by academic and research libraries, and <a href="https://www.iii.com/products/sierra/" target="_blank">Sierra ILS</a>, which offers advanced cataloging and circulation tools for larger institutions. These systems, while powerful, often come with high costs and limited customization options. BookNest, as an open-source alternative, aims to provide similar functionality without licensing fees, ensuring accessibility and flexibility for libraries of all sizes.</p>
+
+
+        <h2>Starting from What You Have</h2>
+        <p>BookNest began as a project in ITSE305, where we focused on building the core functionalities of a library system. The initial version, written in Java, included essential features such as searching for books, user login and signup, and basic book management. While functional, it lacked a user-friendly interface and was limited in scope. With BookNest, we expanded on these foundations by developing a web-based open source system, an improved UI, and support for multiple contributors, making it more scalable and collaborative.</p>
+
+        <h2>Choose a Good Name</h2>
+        <p>the name BookNest was chosen to reflect the system’s purpose—a place where books are collected, organized, and managed efficiently. "Nest" conveys a sense of structure and safekeeping, aligning with the goal of providing a well-organized library system. The name is simple, memorable, and clearly linked to books, making it easy for users to associate with a library management solution.
+
+        </p>
+
+        <h2>State That the Project is Free</h2>
+        <p>BookNest is an open-source project released under the GNU General Public License (GPL). This means it's free to use, modify, and distribute, ensuring accessibility for libraries and institutions without licensing costs.
+        </p>
+
+        <h2>Features and Requirements List</h2>
+        <h3>Core Features</h3>
+        <ul>
+            <li>Comprehensive Book Management – Easily add, remove, and track books.</li>
+            <li>Member Management – Maintain detailed records of library members and their borrowing history.</li>
+            <li>Loan Tracking – Monitor checked-out books and their return due dates.</li>
+            <li>Search Functionality – Find books by title, author, or accession number.</li>
+            <li>Reporting Tools – Generate reports on library activity and inventory status.</li>
+        </ul>
+
+        <h3>System Requirements</h3>
+        <ul>
+            <li>Java Development Kit (JDK) 11 or later</li>
+            <li>RAM: Minimum 2GB (4GB recommended)</li>
+            <li>Storage: 500MB available disk space</li>
+            <li>OS: Windows 10 / macOS 10.15 / Linux Ubuntu 18.04 or later</li>
+        </ul>
+
+        <h2>Development Status</h2>
+        <p>BookNest is currently under development. There exist functionalities in place and we are actively working on enhancements, optimizations, and additional features.
+        </p>
+
+        <h2>Downloads</h2>
+        <p>BookNest is available for Windows, macOS, and Linux operating systems. The installation steps are almost similar across all platforms:​
+            <ul>
+            <li>Download the appropriate installer from the Download section in the header.​</li>
+            <li>Run the installer and follow the on-screen instructions.​</li>
+            <li>Launch BookNest and begin using it.</li>
+            </ul>
+            </p>
+
+        <h2>Version Control and Bug Tracker Access</h2>
+        <p>BookNest follows best practices for version control using <a href="https://github.com/maryam370/booking-system" target="_blank">GitHub</a></p>
+
+        <h2>Communication Channels</h2>
+        <ul>
+            <li><strong>GitHub Discussions</strong> - Engage with the community and developers.</li>
+            <li><strong>Social Media</strong> - Follow us on:
+                <ul>
+                    <li>LinkedIn</li>
+                    <li>Twitter</li>
+                    <li>GitHub</li>
+                    <li>YouTube</li>
+                    <li>Discord</li>
+                    <li>Google Contributor</li>
+                </ul>
+            </li>
+        </ul>
+
+        <h2>Developer Guidelines</h2>
+        <ul>
+            <li><strong>Code Standards</strong> – Follow Java best practices.</li>
+            <li><strong>Commit Messages</strong> – Use clear and concise commit messages.</li>
+            <li><strong>Code Reviews</strong> – Provide constructive feedback.</li>
+            <li><strong>Testing & Documentation</strong> – Test code thoroughly and update documentation.</li>
+        </ul>
+
+        <h2>Documentation</h2>
+        <p>Proper documentation ensures BookNest is accessible to all users and developers.</p>
+        <ul>
+            <li><strong>Improving Docs:</strong> Help update outdated, unclear, or missing documentation.</li>
+            <li><strong>Code Documentation:</strong> Comment code clearly to explain its functionality.</li>
+            <li><strong>User Guides & Tutorials:</strong> Create guides for setup, usage, and troubleshooting.</li>
+            <li><strong>API Documentation:</strong> Ensure API endpoints are well-documented for integrations.</li>
+        </ul>
+        
+            <h2>Maintaining a FAQ</h2>
+            <ul>
+                <li><strong>Q:</strong> Who can use BookNest? <strong>A:</strong> Currently, it is designed for library staff (librarians) to manage books and serve library members.</li>
+                <li><strong>Q:</strong> How do I set up BookNest? <strong>A:</strong> Save all three source code files locally in the same folder and run <code>LibraryMain</code> to initialize the system.</li>
+                <li><strong>Q:</strong> How do I check if a book is available? <strong>A:</strong> Use the "Is the book issued?" service (option 10) and enter the book's accession number.</li>
+                <li><strong>Q:</strong> Can I edit book details after adding them? <strong>A:</strong> Currently, you need to delete and re-add the book. Future updates will include direct editing.</li>
+                <li><strong>Q:</strong> Can I modify the source code? <strong>A:</strong> Yes! BookNest is open-source under the GNU General Public License (GPL).</li>
+                <li><strong>Q:</strong> Is there a cost to use BookNest? <strong>A:</strong> No, it is completely free and open-source.</li>
+                <li><strong>Q:</strong> How do I receive updates about new features? <strong>A:</strong> Subscribe to our mailing list or follow us on social media.</li>
+            </ul>
+            
+
+        <h2>Developer Documentation</h2>
+        <p>Developers are encouraged to contribute by improving documentation:</p>
+            <ul>
+           <li> Code Documentation – Ensure your code is well-documented.</li>
+            
+            <li>User Documentation – Expand guides for setup, usage, and troubleshooting.</li>
+            
+            <li>API Documentation – Make API usage clear for other developers.</li>
+           </ul>
+
+        <h2>Demos, Screenshots, Videos, and Example Output</h2>
+        <p>
+            Demos, Screenshots, Videos, and Example Output
+            We will provide demos, screenshots, and videos showcasing BookNest’s features soon. Stay tuned!</p>
+
+        <h2>Hosting</h2>
+        <p>BookNest is hosted on GitHub, where the source code, documentation, and bug tracker are available for public access.
+        <ul><li> Repository: <a href="https://github.com/maryam370/booking-system ">BookNest</a></li></ul>
+        </p>
+
+        <h2>Code of Conduct</h2>
+        <p>We follow the <a href= "https://www.contributor-covenant.org/version/2/1/code_of_conduct/">Contributor Covenant Code of Conduct </a>to ensure a respectful and collaborative environment.
+        </p>
+
+        <h2>Announcing</h2>
+        <p>New updates, features, and releases will be announced through GitHub Releases, Social Media Platforms and Developer Community Discussions </p>
+    </div>
+
+</body>
+</html>
