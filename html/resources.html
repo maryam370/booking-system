@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Resources</title>
+    <link rel="stylesheet" href="../css/resources.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+
+<body>
+    <nav>
+        <div class="nav-container">
+            <a href="index.html" class="nav-link active">Home</a>
+            <div class="dropdown">
+                <button class="dropdown-btn">Download</button>
+                <div class="dropdown-content">
+                    <a href="https://github.com/maryam370/booking-system/archive/refs/heads/master.zip"
+                        download="BookNest-Windows.zip">Download for Windows</a>
+                    <a href="https://github.com/maryam370/booking-system/archive/refs/heads/master.zip"
+                        download="BookNest-Mac.zip">Download for Mac</a>
+                    <a href="https://github.com/maryam370/booking-system/archive/refs/heads/master.zip"
+                        download="BookNest-Linux.zip">Download for Linux</a>
+                </div>
+            </div>
+            <a href="explore.html" class="nav-link">Explore</a>
+            <a href="help.html" class="nav-link">Need Help? </a>
+            <a href="InnovationHub.html" class="nav-link">Innovation Hub</a>
+            <a href="contribute.html" class="nav-link">Contribute</a>
+            <a href="resources.html" class="nav-link">Resources</a>
+            <a href="about.html" class="nav-link">About</a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="page-header">
+            <h1>User Resources Center</h1>
+            <p>Find everything you need to get the most out of BookNest, from documentation and tutorials to community
+                resources and support.</p>
+        </div>
+
+        <!-- Resources Grid -->
+        <div class="resources-grid">
+            <div class="resource-card">
+                <div class="resource-image">
+                    <i class="fas fa-book"></i>
+                </div>
+                <div class="resource-content">
+                    <span class="resource-category">Documentation</span>
+                    <h3 class="resource-title">User Manual</h3>
+                    <p class="resource-description">Complete guide to all BookNest features and functionality with
+                        detailed instructions.</p>
+                    <a href="explore.html" class="resource-link">Read Manual</a>
+                </div>
+            </div>
+
+            <div class="resource-card">
+                <div class="resource-image">
+                    <i class="fas fa-video"></i>
+                </div>
+                <div class="resource-content">
+                    <span class="resource-category">Tutorials</span>
+                    <h3 class="resource-title">Video Guides</h3>
+                    <p class="resource-description">Step-by-step video tutorials covering all aspects of BookNest setup
+                        and usage.</p>
+                    <a href="https://www.youtube.com/watch?v=gZokslmBZug" class="resource-link">Watch Videos</a>
+                </div>
+            </div>
+
+            <div class="resource-card">
+                <div class="resource-image">
+                    <i class="fa-solid fa-address-card"></i>
+                </div>
+                <div class="resource-content">
+                    <span class="resource-category">Innovation Hub</span>
+                    <h3 class="resource-title">Share Your Ideas</h3>
+                    <p class="resource-description">Explore groundbreaking ideas, submit your innovations, and collaborate on the future of BookNest.</p>
+                    <a href="InnovationHub.html" class="resource-link">Join Innovation</a>
+                </div>
+            </div>
+
+            <div class="resource-card">
+                <div class="resource-image">
+                    <i class="fas fa-users"></i>
+                </div>
+                <div class="resource-content">
+                    <span class="resource-category">Community</span>
+                    <h3 class="resource-title">Forum & Discussions</h3>
+                    <p class="resource-description">Connect with other users, ask questions, and share your BookNest
+                        experiences.</p>
+                    <a href="contribute.html" class="resource-link">Join Community</a>
+                </div>
+            </div>
+
+            <div class="resource-card">
+                <div class="resource-image">
+                    <i class="fas fa-tools"></i>
+                </div>
+                <div class="resource-content">
+                    <span class="resource-category">Support</span>
+                    <h3 class="resource-title">Troubleshooting</h3>
+                    <p class="resource-description">Solutions to common issues and problems you might encounter with
+                        BookNest.</p>
+                    <a href="report-issue.html" class="resource-link">Get Help</a>
+                </div>
+            </div>
+
+            <div class="resource-card">
+                <div class="resource-image">
+                    <i class="fas fa-lightbulb"></i>
+                </div>
+                <div class="resource-content">
+                    <span class="resource-category">Development</span>
+                    <h3 class="resource-title">Contribution Guide</h3>
+                    <p class="resource-description">Learn how to contribute to BookNest development and submit your
+                        improvements.</p>
+                    <a href="contribute.html" class="resource-link">Contribute</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Add Announcement Section (for admins) -->
+        <div class="add-announcement-section">
+            <div class="section-header">
+                <h2 class="section-title">Add New Announcement</h2>
+            </div>
+
+            <form id="announcementForm" class="announcement-form">
+                <div class="form-group">
+                    <label for="announcement-title">Title</label>
+                    <input type="text" id="announcement-title" placeholder="Enter announcement title" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="announcement-content">Content</label>
+                    <textarea id="announcement-content" placeholder="Enter announcement details..." required></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="announcement-date">Date</label>
+                    <input type="date" id="announcement-date" required>
+                </div>
+
+                <button type="submit" class="submit-btn">Publish Announcement</button>
+            </form>
+        </div>
+
+        
+        <!-- JavaScript for Announcement Submission  -->
+        <script>
+            document.getElementById('announcementForm').addEventListener('submit', function (e) {
+                e.preventDefault();
+
+                // Get form values
+                const title = document.getElementById('announcement-title').value;
+                const content = document.getElementById('announcement-content').value;
+                const date = document.getElementById('announcement-date').value;
+
+                // Format date as "Month Day, Year"
+                const formattedDate = new Date(date).toLocaleDateString('en-US', {
+                    year: 'numeric',
+                    month: 'long',
+                    day: 'numeric'
+                });
+
+                // Create new announcement element
+                const announcementList = document.querySelector('.announcement-list');
+                const newAnnouncement = document.createElement('li');
+                newAnnouncement.className = 'announcement-item';
+                newAnnouncement.innerHTML = `
+                    <div class="announcement-date">${formattedDate}</div>
+                    <h3 class="announcement-title">${title}</h3>
+                    <p class="announcement-content">${content}</p>
+                `;
+
+                // Add new announcement at the top of the list
+                announcementList.insertBefore(newAnnouncement, announcementList.firstChild);
+
+                // Reset form
+                this.reset();
+            });
+        </script>
+
+        <!-- Announcements Section -->
+        <div class="announcements-section">
+            <div class="section-header">
+                <h2 class="section-title">Latest Announcements</h2>
+                <a href="announcements.html" class="view-all">View All</a>
+            </div>
+
+            <ul class="announcement-list">
+                <li class="announcement-item">
+                    <div class="announcement-date">June 18, 2023</div>
+                    <h3 class="announcement-title">BookNest 2.1 Release</h3>
+                    <p class="announcement-content">We're excited to announce the release of BookNest 2.1 with new
+                        features and improvements...</p>
+                </li>
+
+                <li class="announcement-item">
+                    <div class="announcement-date">June 15, 2023</div>
+                    <h3 class="announcement-title">Scheduled Maintenance</h3>
+                    <p class="announcement-content">There will be scheduled maintenance on June 20th from 2:00-4:00 AM
+                        UTC...</p>
+                </li>
+
+                <li class="announcement-item">
+                    <div class="announcement-date">June 10, 2023</div>
+                    <h3 class="announcement-title">Community Meetup</h3>
+                    <p class="announcement-content">Join our virtual community meetup on June 25th to discuss upcoming
+                        features...</p>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Issue Reporting Section -->
+        <div class="issue-reporting">
+            <div class="section-header">
+                <h2 class="section-title">Report an Issue</h2>
+            </div>
+
+            <p>
+                If you face any issues or bugs while using BookNest, please report them to us. Your feedback is
+                invaluable in helping us improve the software.
+                <a href="report-issue.html">Report an Issue</a>
+            </p>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-links">
+                <a href="https://www.privacypolicies.com/generic/">Privacy Policy</a>
+                <a href="https://www.contributor-covenant.org/version/2/1/code_of_conduct/">Code of Conduct</a>
+            </div>
+            <p class="copyright">© 2023 bookNest Project. Licensed under MIT License.</p>
+        </div>
+    </footer>
+
+</body>
+
+</html>

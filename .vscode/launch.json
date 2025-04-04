@@ -8,7 +8,9 @@
             "type": "msedge",
             "request": "launch",
             "name": "Open explore.html",
-            "file": "/Users/arooma/booking-system/html/explore.html"
+            "url": "${workspaceFolder}/html/explore.html",
+            // "file": "/Users/arooma/booking-system/html/explore.html"
+            "webRoot": "${workspaceFolder}",
         }
     ]
 }
