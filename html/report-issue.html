@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Report an Issue | bookNest</title>
     <link rel="stylesheet" href="../css/explore.css">
+    <link rel="stylesheet" href="../css/help.css">
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         /* Additional styles specific to report page */
@@ -69,27 +71,41 @@
     </style>
 </head>
 <body>
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <img src="../img/bookNest.png" alt="Logo">
+                <div class="logo-text">Book<span>Nest</span></div>
+            </div>
+            <div class="language-selector">
+                <a href="#">EN</a>
+                <a href="#">ES</a>
+                <a href="#">FR</a>
+                <a href="#">DE</a>
+                <a href="#">中文</a>
+            </div>
+        </div>
+    </header>
+    
+    <!-- Navigation Bar (copied from Help page, but with "Explore" as active) -->
     <nav>
         <div class="nav-container">
-            <a href="index.html" class="home-icon" aria-label="Home">
-                <i class="fas fa-home"></i>
-            </a>
+            <a href="index.html" class="nav-link">Home</a>
             <div class="dropdown">
-                <button class="dropdown-btn">DOWNLOAD</button>
+                <button class="dropdown-btn">Download</button>
                 <div class="dropdown-content">
-                    <a href="#">Windows</a>
-                    <a href="#">Mac</a>
-                    <a href="#">Linux</a>
+                    <a href="https://github.com/maryam370/booking-system/archive/refs/heads/master.zip" download="BookNest-Windows.zip">Windows</a>
+                    <a href="https://github.com/maryam370/booking-system/archive/refs/heads/master.zip" download="BookNest-Mac.zip">MacOS</a>
+                    <a href="https://github.com/maryam370/booking-system/archive/refs/heads/master.zip" download="BookNest-Linux.zip">Linux</a>
                 </div>
             </div>
-            <a href="explore.html">Explore</a>
-            <a href="help.html" class="nav-link">Need Help? </a>
+            <a href="explore.html" class="nav-link active">Explore</a>
+            <a href="help.html" class="nav-link">Need Help?</a>
             <a href="InnovationHub.html" class="nav-link">Innovation Hub</a>
             <a href="contribute.html" class="nav-link">Contribute</a>
             <a href="about.html" class="nav-link">About</a>
         </div>
     </nav>
-
     <section class="container">
         <h2>Report an Issue</h2>
         <p>Found a problem with bookNest? Help us improve by reporting any bugs, errors, or issues you encounter.</p>
