@@ -75,7 +75,8 @@
                 <div class="resource-content">
                     <span class="resource-category">Innovation Hub</span>
                     <h3 class="resource-title">Share Your Ideas</h3>
-                    <p class="resource-description">Explore groundbreaking ideas, submit your innovations, and collaborate on the future of BookNest.</p>
+                    <p class="resource-description">Explore groundbreaking ideas, submit your innovations, and
+                        collaborate on the future of BookNest.</p>
                     <a href="InnovationHub.html" class="resource-link">Join Innovation</a>
                 </div>
             </div>
@@ -146,7 +147,7 @@
             </form>
         </div>
 
-        
+
         <!-- JavaScript for Announcement Submission  -->
         <script>
             document.getElementById('announcementForm').addEventListener('submit', function (e) {
@@ -226,6 +227,28 @@
             </p>
         </div>
     </div>
+
+    <button id="backToTop">Back to Top</button>
+
+    <script>
+        // JavaScript for Back to Top Button
+        const backToTopButton = document.getElementById('backToTop');
+
+        window.onscroll = () => {
+            if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+                backToTopButton.style.display = 'block';
+            } else {
+                backToTopButton.style.display = 'none';
+            }
+        };
+
+        backToTopButton.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    </script>
 
     <footer>
         <div class="footer-container">
