@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BookNest Community Hub</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/home.css">
+    <style>
+        /* General Styles */
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #2c3e50;
+        }
+
+        nav {
+            background-color:  #2c3e50;
+            padding: 15px 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .nav-container {
+            background-color:#2c3e50;
+            display: flex;
+            justify-content: space-around;
+            width: 100%;
+            max-width: 1200px;
+        }
+
+        .nav-link {
+            color: #fff;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: bold;
+            padding: 10px 15px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .nav-link:hover, .dropdown:hover {
+            color: white;
+        }
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-btn {
+            color: white;
+            background-color: transparent;
+            border: none;
+            font-size: 18px;
+            font-weight: bold;
+            padding: 10px 15px;
+            cursor: pointer;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            min-width: 160px;
+            background-color: #fff;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+            border-radius: 5px;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .dropdown-content a {
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            transition: background-color 0.3s ease;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #f1f1f1;
+        }
+
+        /* Main Content Styles */
+        .container {
+            width: 80%;
+            max-width: 1200px;
+            margin: 100px auto;
+            padding: 20px;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #2d2d2d;
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            color: #2d2d2d;
+            margin-top: 20px;
+            cursor: pointer;
+            border-bottom: 2px solid #13218b;
+            padding-bottom: 5px;
+        }
+
+        h3 {
+            color: #2d2d2d;
+            margin-top: 20px;
+        }
+
+        p {
+            margin: 10px 0;
+            line-height: 1.5;
+        }
+
+        a {
+            color: #230c98;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .community-item {
+            
+            margin: 15px 0;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+        ul {
+            padding-left: 10px;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            margin-top: 20px;
+            padding: 10px 0;
+            background-color: #333;
+            color: white;
+        }
+
+        /* Back to Top Button */
+        #backToTop {
+            display: none;
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            padding: 10px 15px;
+            background-color: #1d0d64;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        #backToTop:hover {
+            background-color: #1d0d64;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <img src="../img/bookNest.png" alt="Logo">
+                <div class="logo-text">Book<span>Nest</span></div>
+            </div>
+            <div class="language-selector">
+                <a href="#">EN</a>
+                <a href="#">ES</a>
+                <a href="#">FR</a>
+                <a href="#">DE</a>
+                <a href="#">更多</a>
+            </div>
+        </div>
+    </header>
+
+    <nav>
+        <div class="nav-container">
+            <a href="index.html" class="nav-link active">Home</a>
+            <div class="dropdown">
+                <button class="dropdown-btn">Download</button>
+                <div class="dropdown-content">
+                    <a href="https://github.com/maryam370/booking-system/archive/refs/heads/master.zip" download="BookNest-Windows.zip">Download for Windows</a>
+                    <a href="https://github.com/maryam370/booking-system/archive/refs/heads/master.zip" download="BookNest-Mac.zip">Download for Mac</a>
+                    <a href="https://github.com/maryam370/booking-system/archive/refs/heads/master.zip" download="BookNest-Linux.zip">Download for Linux</a>
+                </div>
+            </div>
+            <a href="explore.html" class="nav-link">Explore</a>
+            <a href="help.html" class="nav-link">Need Help?</a>
+            <a href="InnovationHub.html" class="nav-link">Innovation Hub</a>
+            <a href="contribute.html" class="nav-link">Contribute</a>
+            <a href="about.html" class="nav-link">About</a>
+        </div>
+    </nav>
+
+    <main class="container">
+        <div class="community-section">
+            <h2>About BookNest Community</h2>
+            <p>BookNest is an open-source library management system designed to be a central hub for book lovers. Our community is dedicated to improving the platform, sharing knowledge, and supporting each other.</p>
+        </div>
+
+        <div class="community-section">
+            <h2> BookNest Licensing</h2>
+            <p>BookNest is open-source software, freely available for redistribution and modification under the terms of the GNU General Public License (GPL) as published by the Free Software Foundation, either version 3 or any later version of your choice.
+            For full details, please refer to the GNU General Public License. A copy of the license should be included with this program; if not, you can access it at <a href="https://www.gnu.org/licenses/" target="_blank">GNU License</a>.</p>
+        </div>
+
+        <div class="community-section">
+            <h2>Join the Movement </h2>
+            <div class="community-item">
+                <h3>Be our new contributor</h3>
+                <p>Interested in contributing? Check out our <a href="https://github.com/maryam370/booking-system/blob/main/README.md#booknest-participation-guidelines"> Contributor guidlines  </a> and <a href="https://www.contributor-covenant.org/version/2/1/code_of_conduct/">code of conduct</a> for information on how to get involved, report issues, and submit enhancements.</p>
+                <p>Go to our <a href="https://github.com/maryam370/booking-system" target="_blank">GitHub page</a> and start coding and improving BookNest.</p>
+            </div>
+        </div>
+
+        <div class="community-section">
+            <h2>Contributing Developers</h2>
+            <div class="community-item">
+                <h3>Developer guidelines</h3>
+                <p>To maintain quality and consistency across the project, BookNest follows these developer guidelines:</p>
+                <ul>
+                    <li><strong> Code Standards:</strong> Follow Java best practices, ensuring code is clean, readable, and well-commented.</li>
+                    <li><strong> Commit Messages:</strong> Use clear and concise commit messages, indicating the scope of changes.</li>
+                    <li><strong>  Code Reviews:</strong> Be constructive in code reviews—provide respectful feedback and be open to changes. Aim for collaboration and improvement.</li>
+                    <li><strong> Testing & Documentation:</strong> Test your code thoroughly and ensure it works as expected. Update relevant documentation for any new features or changes to maintain clarity for developers and users.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="community-section">
+            <h2>Discussion Forums</h2>
+            <div class="community-item">
+                <h3>Join the Conversation</h3>
+                <p>Join our <a href="https://github.com/maryam370/booking-system/discussions" target="_blank">discussion forums</a> to connect with other users, share ideas, ask questions, and provide feedback on the platform.</p>
+            </div>
+        </div>
+
+        <div class="community-section">
+            <h2>Mailing List</h2>
+            <div class="community-item">
+                <h3>Get updated and send your questions, thoughts, and suggestions</h3>
+                <p>Join our <a href="https://groups.google.com/g/booknest-contributors" target="_blank">BookNest Contributors Google Group</a> and start sending and receiving emails with other contributors.</p>
+            </div>
+        </div>
+
+        <div class="community-section">
+            <h2>Reporting Bugs</h2>
+            <div class="community-item">
+                <h3>Fix it</h3>
+                <p>If you find any bug or issue, make a new <a href="https://github.com/maryam370/booking-system/issues/new" target="_blank">GitHub issue</a> with the details. </p>
+            </div>
+        </div>
+
+        <div class="community-section">
+            <h2>Support the Project</h2>
+            <div class="community-item">
+                <h3>Star it on GitHub</h3>
+                <p>If you love BookNest, consider starring the repository on GitHub. It helps us get more attention and contributes to its growth.</p>
+                <p>Visit our <a href="https://github.com/maryam370/booking-system" target="_blank">GitHub page</a> to star the repository.</p>
+            </div>
+            
+            <div class="community-item">
+                <h3>Follow us</h3>
+                <p>Stay connected with us on social media:</p>
+                <ul>
+                    <li><a href="#" target="_blank">LinkedIn</a></li>
+                    <li><a href="#" target="_blank">Twitter</a></li>
+                    <li><a href="https://github.com/maryam370/booking-system" target="_blank">GitHub</a></li>
+                    <li><a href="#" target="_blank">YouTube</a></li>
+                    <li><a href="#" target="_blank">Discord</a></li>
+                </ul>
+            </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 BookNest. All rights reserved.</p>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="backToTop">Back to Top</button>
+
+    <script>
+        // Back to Top Button
+        const backToTopButton = document.getElementById('backToTop');
+        window.onscroll = function () {
+            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                backToTopButton.style.display = 'block';
+            } else {
+                backToTopButton.style.display = 'none';
+            }
+        };
+        backToTopButton.onclick = function () {
+            document.body.scrollTop = 0;
+            document.documentElement.scrollTop = 0;
+        };
+    </script>
+</body>
+</html>
