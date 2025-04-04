@@ -165,36 +165,68 @@
 
         <!-- JavaScript for Announcement Submission  -->
         <script>
-            document.getElementById('announcementForm').addEventListener('submit', function (e) {
-                e.preventDefault();
+            // save announcement to localStorage
+            const saveAnnouncement = (title, content, date) => {
+                const announcements = JSON.parse(localStorage.getItem('announcements')) || [];
+                // Add new announcement at beginning of the array
+                announcements.unshift({ 
+                    title: title,
+                    content: content,
+                    date: date
+                });
+                localStorage.setItem('announcements', JSON.stringify(announcements));
+                return announcements;
+            };
 
-                // Get form values
+            // load and display ONLY the 3 most recent announcements
+            const loadAnnouncements = () => {
+                const announcements = JSON.parse(localStorage.getItem('announcements')) || [];
+                const announcementList = document.querySelector('.announcement-list');
+
+                // Remove ALL existing announcements
+                announcementList.innerHTML = '';
+
+                // Get only the 3 most recent announcements
+                const latestAnnouncements = announcements.slice(0, 3);
+
+                // Add them to the list
+                latestAnnouncements.forEach(announcement => {
+                    const formattedDate = new Date(announcement.date).toLocaleDateString('en-US', {
+                        year: 'numeric',
+                        month: 'long',
+                        day: 'numeric'
+                    });
+
+                    const newAnnouncement = document.createElement('li');
+                    newAnnouncement.className = 'announcement-item';
+                    newAnnouncement.innerHTML = `
+                        <div class="announcement-date">${formattedDate}</div>
+                        <h3 class="announcement-title">${announcement.title}</h3>
+                        <p class="announcement-content">${announcement.content}</p>
+                    `;
+                    announcementList.appendChild(newAnnouncement);
+                });
+            };
+
+            // Load announcements when page loads
+            document.addEventListener('DOMContentLoaded', loadAnnouncements);
+
+            // Handle form submission
+            document.getElementById('announcementForm').addEventListener('submit', (event) => {
+                event.preventDefault();
+
                 const title = document.getElementById('announcement-title').value;
                 const content = document.getElementById('announcement-content').value;
                 const date = document.getElementById('announcement-date').value;
 
-                // Format date as "Month Day, Year"
-                const formattedDate = new Date(date).toLocaleDateString('en-US', {
-                    year: 'numeric',
-                    month: 'long',
-                    day: 'numeric'
-                });
+                if (!title || !content || !date) {
+                    alert('Please fill all fields');
+                    return;
+                }
 
-                // Create new announcement element
-                const announcementList = document.querySelector('.announcement-list');
-                const newAnnouncement = document.createElement('li');
-                newAnnouncement.className = 'announcement-item';
-                newAnnouncement.innerHTML = `
-                    <div class="announcement-date">${formattedDate}</div>
-                    <h3 class="announcement-title">${title}</h3>
-                    <p class="announcement-content">${content}</p>
-                `;
-
-                // Add new announcement at the top of the list
-                announcementList.insertBefore(newAnnouncement, announcementList.firstChild);
-
-                // Reset form
-                this.reset();
+                saveAnnouncement(title, content, date);
+                loadAnnouncements();
+                e.target.reset();
             });
         </script>
 
@@ -206,21 +238,21 @@
             </div>
 
             <ul class="announcement-list">
-                <li class="announcement-item">
+                <li class="announcement-item hardcoded">
                     <div class="announcement-date">June 18, 2023</div>
                     <h3 class="announcement-title">BookNest 2.1 Release</h3>
                     <p class="announcement-content">We're excited to announce the release of BookNest 2.1 with new
                         features and improvements...</p>
                 </li>
 
-                <li class="announcement-item">
+                <li class="announcement-item hardcoded">
                     <div class="announcement-date">June 15, 2023</div>
                     <h3 class="announcement-title">Scheduled Maintenance</h3>
                     <p class="announcement-content">There will be scheduled maintenance on June 20th from 2:00-4:00 AM
                         UTC...</p>
                 </li>
 
-                <li class="announcement-item">
+                <li class="announcement-item hardcoded">
                     <div class="announcement-date">June 10, 2023</div>
                     <h3 class="announcement-title">Community Meetup</h3>
                     <p class="announcement-content">Join our virtual community meetup on June 25th to discuss upcoming
