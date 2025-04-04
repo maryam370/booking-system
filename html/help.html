@@ -6,6 +6,37 @@
     <title>Need Help? | bookNest</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="../css/help.css">
+    <style>
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+        }
+        
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: var(--secondary);
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -221,5 +252,14 @@
             });
         });
     </script>
+    <footer>
+        <div class="footer-container">
+            <div class="footer-links">
+                <a href="https://www.privacypolicies.com/generic/">Privacy Policy</a>
+                <a href="https://www.contributor-covenant.org/version/2/1/code_of_conduct/">Code of Conduct</a>
+            </div>
+            <p class="copyright">© 2025 bookNest Project/p>
+        </div>
+    </footer>
 </body>
 </html>
