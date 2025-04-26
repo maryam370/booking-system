@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Explore bookNest</title>
+    <link rel="stylesheet" href="../css/explore.css">
+    <link rel="stylesheet" href="../css/help.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* FAQ Section Styling */
+        .faq-section {
+            margin: 3rem 0;
+            border-top: 2px solid var(--light);
+            padding-top: 2rem;
+        }
+        
+        .faq-item {
+            margin-bottom: 1.5rem;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 1.5rem;
+        }
+        
+        .faq-question {
+            color: var(--primary);
+            font-weight: 600;
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .faq-question::after {
+            content: '+';
+            font-size: 1.5rem;
+            color: var(--secondary);
+        }
+        
+        .faq-question.active::after {
+            content: '-';
+        }
+        
+        .faq-answer {
+            color: var(--text);
+            line-height: 1.7;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+        
+        .faq-answer.show {
+            max-height: 500px;
+        }
+        
+        /* Reporting Section */
+        .report-section {
+            background-color: var(--light);
+            padding: 2rem;
+            border-radius: 8px;
+            margin: 2rem 0;
+        }
+        /* NEW: FAQ header layout */
+    .faq-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 1rem;
+    }
+    
+    /* NEW: Copy button */
+    .copy-faq {
+        background: var(--primary);
+        color: white;
+        border: none;
+        padding: 0.5rem 1rem;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+    
+    /* NEW: Single-answer behavior */
+    .faq-item {
+        transition: all 0.3s ease;
+    }
+    </style>
+</head>
+<body>
+<header>
+    <div class="header-container">
+        <div class="logo">
+            <img src="../img/bookNest.png" alt="Logo">
+            <div class="logo-text">Book<span>Nest</span></div>
+        </div>
+        <div class="language-selector">
+            <a href="#">EN</a>
+            <a href="#">ES</a>
+            <a href="#">FR</a>
+            <a href="#">DE</a>
+            <a href="#">中文</a>
+        </div>
+    </div>
+</header>
+
+<!-- Navigation Bar (copied from Help page, but with "Explore" as active) -->
+<nav>
+    <div class="nav-container">
+        <a href="index.html" class="nav-link">Home</a>
+        <div class="dropdown">
+            <button class="dropdown-btn">Download</button>
+            <div class="dropdown-content">
+                <a href="https://github.com/maryam370/booking-system/archive/refs/heads/master.zip" download="BookNest-Windows.zip">Windows</a>
+                <a href="https://github.com/maryam370/booking-system/archive/refs/heads/master.zip" download="BookNest-Mac.zip">MacOS</a>
+                <a href="https://github.com/maryam370/booking-system/archive/refs/heads/master.zip" download="BookNest-Linux.zip">Linux</a>
+            </div>
+        </div>
+        <a href="explore.html" class="nav-link active">Explore</a>
+        <a href="help.html" class="nav-link">Need Help?</a>
+        <a href="InnovationHub.html" class="nav-link">Innovation Hub</a>
+        <a href="contribute.html" class="nav-link">Contribute</a>
+            <a href="resources.html" class="nav-link">Resources</a>
+        <a href="about.html" class="nav-link">About</a>
+    </div>
+</nav>
+
+    <section id="explore" class="explore-section">
+        <div class="container">
+            <h2>Explore bookNest Features</h2>
+            <p>
+                bookNest offers powerful tools to enhance your library experience. Below you'll find detailed information about our system's capabilities and how to make the most of them.
+            </p>
+
+            <h3>Core Features</h3>
+            <p>
+                <ol>
+                    <li><strong>Comprehensive Book Management:</strong> Easily add, remove, and track all books in your collection.</li>
+                    <li><strong>Member Management:</strong> Maintain detailed records of library members and their borrowing history.</li>
+                    <li><strong>Loan Tracking:</strong> Monitor which books are checked out and when they're due for return.</li>
+                    <li><strong>Search Functionality:</strong> Quickly find books by title, author, or accession number.</li>
+                    <li><strong>Reporting Tools:</strong> Generate reports on library activity and inventory status.</li>
+                </ol>
+            </p>
+
+            <h3>Getting Started Guide</h3>
+            <p>
+                To begin using bookNest's features:
+                <ol>
+                    <li>Download the latest version from our download page</li>
+                    <li>Import the project into your preferred Java IDE</li>
+                    <li>Run the LibraryMain.java file</li>
+                    <li>Follow the on-screen menu to navigate the system</li>
+                    <li>Use option (1) to add your first book to the system</li>
+                </ol>
+            </p>
+
+            <h3>Feature Highlights</h3>
+            <div class="feature-grid">
+                <div class="feature-item">
+                    <div class="feature-img-container">
+                        <img src="../img/inventory.png" alt="Book inventory management" class="feature-img">
+                    </div>
+                    <h4>Inventory Management</h4>
+                    <p>Keep track of all books in your collection with detailed records including title, author, and availability status.</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-img-container">
+                        <img src="../img/libcards Small.png" alt="Library member cards" class="feature-img">
+                    </div>
+                    <h4>Member Services</h4>
+                    <p>Register new members, update their information, and view their borrowing history all in one place.</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-img-container">
+                        <img src="../img/loanprocessing.jpg" alt="Book loan processing system" class="feature-img">
+                    </div>
+                    <h4>Loan Processing</h4>
+                    <p>Efficiently manage book checkouts and returns with automatic due date calculation.</p>
+                </div>
+            </div>
+
+            <h3>System Requirements</h3>
+            <ul>
+                <li>Java Development Kit (JDK) 11 or later</li>
+                <li>2GB RAM minimum (4GB recommended)</li>
+                <li>500MB available disk space</li>
+                <li>Windows 10/macOS 10.15/Linux Ubuntu 18.04 or later</li>
+            </ul>
+
+            <h3>Community Contributions</h3>
+            <p>
+                bookNest thrives on community involvement. Here are some ways you can contribute:
+                <ul>
+                    <li>Submit bug reports through our GitHub issues page</li>
+                    <li>Propose new features or improvements</li>
+                    <li>Share your custom modifications with other users</li>
+                    <li>Help improve our documentation</li>
+                </ul>
+                Visit our <a href="contribute.html">Contribute page</a> to learn more about getting involved.
+            </p>
+
+            <!-- New FAQ Section -->
+           <!-- Update JUST the FAQ section header (keep all existing Q&A) -->
+                <div class="faq-section">
+                <div class="faq-header">
+                <h3>Frequently Asked Questions</h3>
+               <button class="copy-faq" id="copyFaq">Copy All</button>
+              </div>
+                <p>Maintaining a Frequently Asked Questions (FAQ) section helps users quickly find answers to common queries and understand how to use the system effectively.</p>
+                
+                <div class="faq-item">
+                    <div class="faq-question">Who can use the bookNest system?</div>
+                    <div class="faq-answer">
+                        <p>In the current development state, the primary users of the system are library staff (librarians). They use the system to manage the library collection and serve library members.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">How do I set up bookNest for my library?</div>
+                    <div class="faq-answer">
+                        <p>You need to save all three source code files locally in the same folder, then run the "LibraryMain" file to initialize the system for your library.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">How do I check if a book is available?</div>
+                    <div class="faq-answer">
+                        <p>To check book availability, use service (10) named "Is the book issued?" and enter the book's accession number. If the book isn't issued, it's available for checkout.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">Can I edit book information after adding it?</div>
+                    <div class="faq-answer">
+                        <p>In the current version, you'll need to delete the book record and add it again with the corrected information. Future updates will include direct editing capabilities.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">Can I modify the source code?</div>
+                    <div class="faq-answer">
+                        <p>Yes! bookNest is open-source under the GNU General Public License. You can modify the code to meet your needs or contribute to the main project.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">Is there a cost to use bookNest?</div>
+                    <div class="faq-answer">
+                        <p>No, bookNest is completely free and open-source. Libraries can use all features without any licensing costs.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">How do I get updates about new features?</div>
+                    <div class="faq-answer">
+                        <p>Subscribe to our mailing list or follow us on social media to stay informed about updates and new features.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- New Reporting Section -->
+            <div class="report-section">
+                <h3>Reporting an Issue</h3>
+                <p>Found a bug or have a suggestion for improvement? We welcome your feedback to help make bookNest better for everyone.</p>
+                <a href="InnovationHub.html" class="button">Report an Issue</a>
+            </div>
+
+            <h3>Upcoming Features</h3>
+            <ol>
+                <li><strong>Mobile Compatibility:</strong> We're working on a mobile-friendly version for on-the-go library management.</li>
+                <li><strong>Advanced Analytics:</strong> New reporting tools will provide deeper insights into library usage patterns.</li>
+                <li><strong>Multi-user Support:</strong> Future updates will allow multiple librarians to work simultaneously.</li>
+            </ol>
+
+            <h3>Need Assistance?</h3>
+            <p>
+                If you need help with any bookNest features:
+                <p><a href="help.html">Visit our Help Center</a></p>
+            </p>
+
+            <h3>Join Our Community</h3>
+            <p>
+                Connect with other bookNest users and developers to share tips, ask questions, and collaborate on improvements:
+            </p>
+            <ul>
+                <li><strong>GitHub Discussions:</strong> <a href="https://github.com/maryam370/booking-system/discussions" target="_blank">Join the conversation</a></li>
+                <li><strong>Community Forum:</strong> Coming soon!</li>
+                <li><strong>Monthly Webinars:</strong> Learn about new features and best practices</li>
+            </ul>
+
+            <footer>
+                <div class="footer-container">
+                    <div class="footer-links">
+                        <a href="https://www.privacypolicies.com/generic/">Privacy Policy</a>
+                        <a href="https://www.contributor-covenant.org/version/2/1/code_of_conduct/">Code of Conduct</a>
+                    </div>
+                    <p class="copyright">© 2025 bookNest Project/p>
+                </div>
+            </footer>
+        </div>
+        <button id="backToTop">Back to Top</button>
+    </section>
+
+    <script>
+        // JavaScript for Back to Top Button
+        const backToTopButton = document.getElementById('backToTop');
+        
+        window.onscroll = () => {
+            if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+                backToTopButton.style.display = 'block';
+            } else {
+                backToTopButton.style.display = 'none';
+            }
+        };
+        
+        backToTopButton.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // JavaScript for FAQ Toggle
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const answer = question.nextElementSibling;
+                question.classList.toggle('active');
+                answer.classList.toggle('show');
+            });
+        });
+    </script>
+    <script>
+        // NEW: Single-answer FAQ
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                // Close others first
+                document.querySelectorAll('.faq-answer.show').forEach(ans => {
+                    if (ans !== question.nextElementSibling) {
+                        ans.classList.remove('show');
+                        ans.previousElementSibling.classList.remove('active');
+                    }
+                });
+                // Toggle current
+                question.classList.toggle('active');
+                question.nextElementSibling.classList.toggle('show');
+            });
+        });
+    
+        // NEW: Copy FAQs
+        document.getElementById('copyFaq').addEventListener('click', () => {
+            const faqs = Array.from(document.querySelectorAll('.faq-item')).map(item => {
+                return `${item.querySelector('.faq-question').textContent}\n${item.querySelector('.faq-answer').textContent}`;
+            }).join('\n\n');
+            
+            navigator.clipboard.writeText(faqs)
+                .then(() => alert('FAQs copied!'))
+                .catch(() => alert('Failed to copy'));
+        });
+    </script>
+    
+</body>
+</html>
