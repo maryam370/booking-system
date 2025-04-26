@@ -61,6 +61,28 @@
             border-radius: 8px;
             margin: 2rem 0;
         }
+        /* NEW: FAQ header layout */
+    .faq-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 1rem;
+    }
+    
+    /* NEW: Copy button */
+    .copy-faq {
+        background: var(--primary);
+        color: white;
+        border: none;
+        padding: 0.5rem 1rem;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+    
+    /* NEW: Single-answer behavior */
+    .faq-item {
+        transition: all 0.3s ease;
+    }
     </style>
 </head>
 <body>
@@ -177,8 +199,12 @@
             </p>
 
             <!-- New FAQ Section -->
-            <div class="faq-section">
+           <!-- Update JUST the FAQ section header (keep all existing Q&A) -->
+                <div class="faq-section">
+                <div class="faq-header">
                 <h3>Frequently Asked Questions</h3>
+               <button class="copy-faq" id="copyFaq">Copy All</button>
+              </div>
                 <p>Maintaining a Frequently Asked Questions (FAQ) section helps users quickly find answers to common queries and understand how to use the system effectively.</p>
                 
                 <div class="faq-item">
@@ -302,5 +328,34 @@
             });
         });
     </script>
+    <script>
+        // NEW: Single-answer FAQ
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                // Close others first
+                document.querySelectorAll('.faq-answer.show').forEach(ans => {
+                    if (ans !== question.nextElementSibling) {
+                        ans.classList.remove('show');
+                        ans.previousElementSibling.classList.remove('active');
+                    }
+                });
+                // Toggle current
+                question.classList.toggle('active');
+                question.nextElementSibling.classList.toggle('show');
+            });
+        });
+    
+        // NEW: Copy FAQs
+        document.getElementById('copyFaq').addEventListener('click', () => {
+            const faqs = Array.from(document.querySelectorAll('.faq-item')).map(item => {
+                return `${item.querySelector('.faq-question').textContent}\n${item.querySelector('.faq-answer').textContent}`;
+            }).join('\n\n');
+            
+            navigator.clipboard.writeText(faqs)
+                .then(() => alert('FAQs copied!'))
+                .catch(() => alert('Failed to copy'));
+        });
+    </script>
+    
 </body>
 </html>
